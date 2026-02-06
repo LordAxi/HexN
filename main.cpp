@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <iterator>
 #include <boost/tokenizer.hpp>
+
 using namespace std;
 
 namespace fi {
@@ -94,12 +95,14 @@ int main(void) {
     string input; cin >> input;
 
     if (input == "0") {
+        cout << "=================================" << endl;
+        cout << "Learning-Mode!" << endl;
 
         string guess;
 
         while (1) {
             cout << "=================================" << endl;
-            cout << "Use 'exit' to exit learn modus." << endl;
+            cout << "Use 'exit' to exit learn mode." << endl;
             cout << "=================================" << endl;
 
             int i = (rand()%0x80);
@@ -122,6 +125,38 @@ int main(void) {
     }
 
     if (input == "1") {
-        // TODO: implement translation mode
+        cout << "=================================" << endl;
+        cout << "Translate-Mode!" << endl;
+
+        string raw_str;
+        string out_str;
+
+        while (1) {
+            cout << "=================================" << endl;
+            cout << "Use 'exit' to exit translate mode." << endl;
+            cout << "=================================" << endl;
+
+            cout << "Which " << fi::input_0 << " value\ndo you want to translate to " << fi::input_1 << endl;
+            cout << "Choose a value to translate. " << endl;
+            cin >> raw_str;
+
+            if (raw_str == "exit") break;
+
+            size_t array_0_size = array_0.size();
+
+            bool found = false;
+
+            for (int i = 0; i < array_0_size; i++) {
+                if (raw_str == array_0[i]) {
+                    cout << "Your value: " << raw_str << endl;
+                    cout << "Tras value: " << array_1[i] << endl;
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                cout << "Invalid input" << endl;
+            }
+        }
     }
 }
