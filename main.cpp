@@ -41,7 +41,7 @@ vector<vector<string>> loadAsciiTable(const std::string& path) {
     return table;
 }
 
-vector<vector<string>> asciiTable = loadAsciiTable("ascii_tabel.csv");
+vector<vector<string>> asciiTable = loadAsciiTable("ascii_table.csv");
 
 std::vector<std::string> getTableRow(std::string type) {
 
